@@ -1,0 +1,448 @@
+{
+  "Uuid": "43e373df-a769-4dec-a064-6523c7cb0cf8",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.Data",
+  "Description": "Data Import from excel without any null or empty data.",
+  "Name": "ImportFromExcel",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Excel.append": {
+        "Key": "DSOffice.Excel",
+        "Value": "DSOffice.dll"
+      },
+      "DSOffice.Data": {
+        "Key": "DSOffice.Data",
+        "Value": "DSOffice.dll"
+      },
+      "DSCore.List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.Object": {
+        "Key": "DSCore.Object",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Dictionary": {
+        "Key": "DesignScript.Builtin.Dictionary",
+        "Value": "DesignScriptBuiltin.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "filePath",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "8a341864f9d8412c991fe912e793039b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1f88591c1bf4404bba09908b4fd63a5",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "showExcel",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": ""
+      },
+      "Id": "abd81a6cd6d74192a5050125e6c50502",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bb1e7ee733614cec9864bb8dcb36d5ad",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "readAsStrings",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": ""
+      },
+      "Id": "c76d9be8dfac453994ee6bb1edd70596",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "82f789cad64d49a5b68c38f7d46a820c",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "sheetName",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": "\"Sheet1\"",
+        "Description": ""
+      },
+      "Id": "7ab774a9ef1e4683bffbb3494b8c4d98",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bbfea05233624df0907ede70690d5d87",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "9b4b86f03a2b4f01917d3056675d35fb",
+      "Inputs": [
+        {
+          "Id": "96ac1e5dbb9a41518ba35d443ea9c201",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7ccf690065534334b7029c6e2011fbc0",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Outlist",
+      "Id": "1b6d3945eeed4b45a373bf55c4c778ed",
+      "Inputs": [
+        {
+          "Id": "8187c069327d4af791693ba8d3a574aa",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "t1 = DSOffice.Data.ImportExcel(t2, t3, t4, t5);\nt6 = DSCore.List.Flatten(t1, -1);\nbool1 = DSCore.Object.IsNull(t6);\nt7 = DSCore.List.FilterByBoolMask(t6, bool1);\nt8 = Dictionary.ValueAtKey(t7, \"in\");\nt9 = Dictionary.ValueAtKey(t7, \"out\");\nt10 = DSCore.List.Flatten(t9, -1);",
+      "Id": "bcaf8aadec1a48bea77ca38123340c13",
+      "Inputs": [
+        {
+          "Id": "45dbb4c74d9d4a99856a8b63fc16fdac",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "afdc1525a2ec497285fc7f01f55bb99b",
+          "Name": "t3",
+          "Description": "t3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e45e2b6711d34da09bf7e4425d5f446b",
+          "Name": "t4",
+          "Description": "t4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ab1d74cafe90442da986296699077f8c",
+          "Name": "t5",
+          "Description": "t5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d31db06ce64d4871a41a2093dea9db26",
+          "Name": "",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0ec61fb5e95b4899a71ad1f955c86a19",
+          "Name": "",
+          "Description": "t6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f28a4943ed23423999fac94e2d35b1f7",
+          "Name": "",
+          "Description": "bool1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ae9cde53488e4ff18cb27296813e7fa0",
+          "Name": "",
+          "Description": "t7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d8cbbbf6b11b44e9b4698fb057957da3",
+          "Name": "",
+          "Description": "t8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3cbe51218ea34b31a591f1bba535ca9c",
+          "Name": "",
+          "Description": "t9",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "44f1b87fb4534341ae21d2d4fc7b7026",
+          "Name": "",
+          "Description": "t10",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f1f88591c1bf4404bba09908b4fd63a5",
+      "End": "96ac1e5dbb9a41518ba35d443ea9c201",
+      "Id": "322d6eb8ec3741f0967d939c72de91b7"
+    },
+    {
+      "Start": "bb1e7ee733614cec9864bb8dcb36d5ad",
+      "End": "ab1d74cafe90442da986296699077f8c",
+      "Id": "bc9201be678c412281b720376eddcd20"
+    },
+    {
+      "Start": "82f789cad64d49a5b68c38f7d46a820c",
+      "End": "e45e2b6711d34da09bf7e4425d5f446b",
+      "Id": "3f20725aeda54eed8d316d8c4bd84fc4"
+    },
+    {
+      "Start": "bbfea05233624df0907ede70690d5d87",
+      "End": "afdc1525a2ec497285fc7f01f55bb99b",
+      "Id": "c088c764898f434cb45a85f3065fa479"
+    },
+    {
+      "Start": "7ccf690065534334b7029c6e2011fbc0",
+      "End": "45dbb4c74d9d4a99856a8b63fc16fdac",
+      "Id": "ea61d23233fd410ea57a2501ea33cbfd"
+    },
+    {
+      "Start": "44f1b87fb4534341ae21d2d4fc7b7026",
+      "End": "8187c069327d4af791693ba8d3a574aa",
+      "Id": "b80b0f78c4554026b316d5182f9988db"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "8a341864f9d8412c991fe912e793039b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 264.807056691726,
+        "Y": -49.2063667331353
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "abd81a6cd6d74192a5050125e6c50502",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 268.513321393618,
+        "Y": 168.721997738141
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "c76d9be8dfac453994ee6bb1edd70596",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 269.254574333997,
+        "Y": 98.3029684021846
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "7ab774a9ef1e4683bffbb3494b8c4d98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 265.548309632104,
+        "Y": 28.6251920066063
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File From Path",
+        "Id": "9b4b86f03a2b4f01917d3056675d35fb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 538.671934717307,
+        "Y": -33.1541115409656
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "1b6d3945eeed4b45a373bf55c4c778ed",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1779.0037808192385,
+        "Y": 115.5372764459936
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "bcaf8aadec1a48bea77ca38123340c13",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 780.42941257477764,
+        "Y": 19.308535236462802
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "169e21d4c138458cb4c36f43b8afd89e",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - Import From Excel",
+        "Nodes": [],
+        "Left": 1293.0888508814992,
+        "Top": 55.422578217376326,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -418.29422966939262,
+    "Y": 70.25756464063528,
+    "Zoom": 0.79435246305134743
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "Uuid": "33a14c6e-2096-43da-ba0e-26215bb2138f",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.COBie",
+  "Description": "Set Serial Number by selecting elements",
+  "Name": "COBieSerialNumber",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "f9ec5941-cb55-491a-8da2-b92eb988b5d0",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "87780fee5ccc49929473ebcd77124941",
+      "Inputs": [
+        {
+          "Id": "db7801cca0e44600b65fb4abea4ac736",
+          "Name": "Elements",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bec711fba7e143ed98e35b24e1dee3be",
+          "Name": "ParameterName",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2ab57c01b95146e6a0ac5b891e087cac",
+          "Name": "Element",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Serial Number to elements parameters"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Element",
+      "Id": "a1879dc284ca405ba2ab0a9b3b1bd67d",
+      "Inputs": [
+        {
+          "Id": "0fe6c28b47de4d4f8d3cd344cdd72939",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "Elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "47c59cb743264ebd9fc773fdcb0f399b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bf44277cb5f54aacaf47393a1d32da7b",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"COBie.SerialNumber\";",
+      "Id": "e9792ebcae274a0288eb1b3549264405",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3b28bd124c504d97859dd640d57c8a04",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "2ab57c01b95146e6a0ac5b891e087cac",
+      "End": "0fe6c28b47de4d4f8d3cd344cdd72939",
+      "Id": "7070c6466dfc4e6594d3d3b56d2b79c2"
+    },
+    {
+      "Start": "bf44277cb5f54aacaf47393a1d32da7b",
+      "End": "db7801cca0e44600b65fb4abea4ac736",
+      "Id": "3376ee3a88ef4a9e9b66b9aac0f4aed6"
+    },
+    {
+      "Start": "3b28bd124c504d97859dd640d57c8a04",
+      "End": "bec711fba7e143ed98e35b24e1dee3be",
+      "Id": "8d1f13148f23458786756579c67d6af2"
+    }
+  ],
+  "Dependencies": [
+    "f9ec5941-cb55-491a-8da2-b92eb988b5d0"
+  ],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "SerialNumberByName",
+        "Id": "87780fee5ccc49929473ebcd77124941",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 251.60000000000014,
+        "Y": -1.6000000000000227
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "a1879dc284ca405ba2ab0a9b3b1bd67d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 593.80000000000007,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "47c59cb743264ebd9fc773fdcb0f399b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -9.2000000000000739,
+        "Y": -66.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "e9792ebcae274a0288eb1b3549264405",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -75.0,
+        "Y": 38.0
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "b08b680d491248cf8fe09d4604aeb214",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - COBie.SerialNumber",
+        "Nodes": [],
+        "Left": 278.0,
+        "Top": -152.00000000000011,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 152.0,
+    "Y": 292.00000000000011,
+    "Zoom": 1.0
+  }
+}

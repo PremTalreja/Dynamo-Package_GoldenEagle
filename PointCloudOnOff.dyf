@@ -1,0 +1,272 @@
+{
+  "Uuid": "42529b63-a5ba-425b-9dca-a393ae7bd24f",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.SCANToBIM",
+  "Description": "PointCloud file on/off by click, You can make revit button by this",
+  "Name": "PointCloudOnOff",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Document.Current": {
+        "Key": "Revit.Application.Document",
+        "Value": "RevitNodes.dll"
+      },
+      "Document": {
+        "Key": "Revit.Application.Document",
+        "Value": "RevitNodes.dll"
+      },
+      "OverrideGraphicSettings": {
+        "Key": "Revit.Filter.OverrideGraphicSettings",
+        "Value": "RevitNodes.dll"
+      },
+      "Elements.View": {
+        "Key": "Revit.Elements.Views.View",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Views.View": {
+        "Key": "Revit.Elements.Views.View",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 368,
+      "SelectedString": "OST_PointClouds",
+      "NodeType": "ExtensionNode",
+      "Id": "f1633e71e1bc4ffdae69cc19d3a98c1a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ed56dc448b2b4e529dcedb5dedce655d",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "view",
+      "Id": "d14e76d4fa154821b8526bd0a86fdc05",
+      "Inputs": [
+        {
+          "Id": "a39faa6794cd45e3a15480387c4ca867",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "OnOff",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": ""
+      },
+      "Id": "32f5a871173e412ea8feece76bd96ee2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2964f09697d143a0be452bbad7a1285a",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "document1 = Document.Current;\nview1 = Document.ActiveView(document1);\noverridegraphicsettings1 = OverrideGraphicSettings.ByProperties(null, null, null, null, null, null, null, null, -1, -1, -1, \"Undefined\", false);\nview2 = Elements.View.SetCategoryOverrides(view1<1L>, t1<1L>, overridegraphicsettings1<1L>, t2<1L>);",
+      "Id": "420fd7b429a2489295e33e6d4f2b7631",
+      "Inputs": [
+        {
+          "Id": "5bb1b30568444cdabdcc28037ba5ea12",
+          "Name": "t1",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6a1fad56c500404b9bd4695e45ccc9ea",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "56a65ee84bda4ac2b7749f3959d23217",
+          "Name": "",
+          "Description": "document1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b233654e333a4840b4032a918ecefe6f",
+          "Name": "",
+          "Description": "view1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4dfaf3b9171b47a59cf25ee0822fdcfd",
+          "Name": "",
+          "Description": "overridegraphicsettings1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dfb91aa629e04d33858ca68bafcbfbe8",
+          "Name": "",
+          "Description": "view2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ed56dc448b2b4e529dcedb5dedce655d",
+      "End": "5bb1b30568444cdabdcc28037ba5ea12",
+      "Id": "4ed2c39a7de04c7fa30a31a1d4639cdb"
+    },
+    {
+      "Start": "2964f09697d143a0be452bbad7a1285a",
+      "End": "6a1fad56c500404b9bd4695e45ccc9ea",
+      "Id": "439eedd019fb426a963693b7bfc1a853"
+    },
+    {
+      "Start": "dfb91aa629e04d33858ca68bafcbfbe8",
+      "End": "a39faa6794cd45e3a15480387c4ca867",
+      "Id": "1129a8d0bcb04fc7aef2f30a79824c8c"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Categories",
+        "Id": "f1633e71e1bc4ffdae69cc19d3a98c1a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 581.36547791815019,
+        "Y": 136.24226792206028
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "d14e76d4fa154821b8526bd0a86fdc05",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1119.1764300080572,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "32f5a871173e412ea8feece76bd96ee2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 605.32387226296748,
+        "Y": 330.20745061305848
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "420fd7b429a2489295e33e6d4f2b7631",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 828.04483009444164,
+        "Y": 184.42655355603711
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "5062256f31c04a83857b92e04f4da933",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - PointCloud On/Off",
+        "Nodes": [],
+        "Left": 806.71253020719109,
+        "Top": 76.3614605435298,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -57.357805175466638,
+    "Y": 121.12044359039029,
+    "Zoom": 0.74769281712332514
+  }
+}

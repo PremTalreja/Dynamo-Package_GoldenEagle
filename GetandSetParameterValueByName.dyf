@@ -1,0 +1,433 @@
+{
+  "Uuid": "08315fb1-a4a6-49e3-9761-00778ee38052",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.Parameter",
+  "Description": "Get Parameter Value From Element and Set it on other Parameter.",
+  "Name": "GetandSetParameterValueByName",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.FromObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "3f172bfafab043f3a09a8dda9d414d1b",
+      "Inputs": [
+        {
+          "Id": "5052e2861c5642aa8fbc5f60064894d1",
+          "Name": "obj",
+          "Description": "Object to be serialized",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a906d8e80f1b440c9aefcecad158d4df",
+          "Name": "str",
+          "Description": "Result of math computation",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Convert an object to a string representation."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Element",
+      "Id": "c853baa9ca20403990cf01b55f7ff9c8",
+      "Inputs": [
+        {
+          "Id": "10f7f3d9c04340bbb4f82cfe5c18906b",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "Elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "6422825b2f534c8bad50454ab576c9b4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "85f07140ed6f49d38fc10040d16528a2",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "GetparameterName",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "d9d2985119924a1491796ef9e44471ef",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6ccb9a0466fa43ba94d2dc699750e6b0",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "SetparameterName",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "c9e7f8a547454f2ba3572ebaa3c6b755",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cb87c1bd96ef48dea6ccc766812f4855",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "element1 = Elements.Element.SetParameterByName(t1, t2, t3);",
+      "Id": "2e01b1fffd2d46c3b83e8db5c31c4935",
+      "Inputs": [
+        {
+          "Id": "fb20a2aec87b4620aea1154f25580666",
+          "Name": "t1",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6a03cb47d5fe4f8388bc1617db5e2455",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d54b601f1cb54a4bbaefb41ad0f3f1a8",
+          "Name": "t3",
+          "Description": "t3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3467f2b3c87e43d597b369796777592d",
+          "Name": "",
+          "Description": "element1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "t3 = Elements.Element.GetParameterValueByName(t1, t2);",
+      "Id": "4638b4e4390c47489fbf4254a54f537d",
+      "Inputs": [
+        {
+          "Id": "7b67fed23e7d49dc98add079e5a7d2f7",
+          "Name": "t1",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "840759e095c04e8a9f092545b1791504",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "568acdb284a9421d9d7cdfafec57c478",
+          "Name": "",
+          "Description": "t3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "635dd536-3beb-4870-b17e-dc7fa696ee49",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "688e676582994ef88793acaad7240bc9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "47fe13f1b54444da9e5b7d9f272093ac",
+          "Name": "Details",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Feel Free to contact me one below mail if you have any queries."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a906d8e80f1b440c9aefcecad158d4df",
+      "End": "d54b601f1cb54a4bbaefb41ad0f3f1a8",
+      "Id": "961559dc5bba4d888bb8d8d54613ae2e"
+    },
+    {
+      "Start": "85f07140ed6f49d38fc10040d16528a2",
+      "End": "fb20a2aec87b4620aea1154f25580666",
+      "Id": "2da62be757374a98868e44e42edf7ebc"
+    },
+    {
+      "Start": "85f07140ed6f49d38fc10040d16528a2",
+      "End": "7b67fed23e7d49dc98add079e5a7d2f7",
+      "Id": "152b2209d5594f61b8ba9a2e09ec6be2"
+    },
+    {
+      "Start": "6ccb9a0466fa43ba94d2dc699750e6b0",
+      "End": "840759e095c04e8a9f092545b1791504",
+      "Id": "3a394fb80b794fdbab78e23217cab540"
+    },
+    {
+      "Start": "cb87c1bd96ef48dea6ccc766812f4855",
+      "End": "6a03cb47d5fe4f8388bc1617db5e2455",
+      "Id": "79c357bf69de424d95179f54fd0b4726"
+    },
+    {
+      "Start": "3467f2b3c87e43d597b369796777592d",
+      "End": "10f7f3d9c04340bbb4f82cfe5c18906b",
+      "Id": "5275a325e69a4708a86480a9a9def4fd"
+    },
+    {
+      "Start": "568acdb284a9421d9d7cdfafec57c478",
+      "End": "5052e2861c5642aa8fbc5f60064894d1",
+      "Id": "7bd83b9837f04137878ea530bde1ffaf"
+    }
+  ],
+  "Dependencies": [
+    "635dd536-3beb-4870-b17e-dc7fa696ee49"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Golden Eagle",
+      "Version": "2022.3.14",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "688e676582994ef88793acaad7240bc9"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "String from Object",
+        "Id": "3f172bfafab043f3a09a8dda9d414d1b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 396.19906341338356,
+        "Y": 93.991833722870268
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "c853baa9ca20403990cf01b55f7ff9c8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1194.7534669782965,
+        "Y": 23.327094973673752
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "6422825b2f534c8bad50454ab576c9b4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -96.216759789390039,
+        "Y": -24.233092343649673
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "d9d2985119924a1491796ef9e44471ef",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -94.972050808632787,
+        "Y": 98.480337776699656
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "c9e7f8a547454f2ba3572ebaa3c6b755",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -65.62946464139776,
+        "Y": 378.57782893225851
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "2e01b1fffd2d46c3b83e8db5c31c4935",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 341.87392372929889,
+        "Y": 309.51459088223589
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "4638b4e4390c47489fbf4254a54f537d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 281.5601873173232,
+        "Y": -149.56784424296694
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "AboutPackage",
+        "Id": "688e676582994ef88793acaad7240bc9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 551.89011670461468,
+        "Y": -9.7151566434735059
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "f15cee4278224adfa53ba6f0af270b1b",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - Getandset parameter in single node",
+        "Nodes": [],
+        "Left": 379.50277208903566,
+        "Top": -263.92114498759338,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -188.32480530684973,
+    "Y": 466.64008829521396,
+    "Zoom": 1.4682111945209582
+  }
+}

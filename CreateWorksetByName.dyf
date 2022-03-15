@@ -1,0 +1,185 @@
+{
+  "Uuid": "1b1c9171-c425-4e9b-bff1-2a02b06bddbf",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.Workset",
+  "Description": "Create Workset By name",
+  "Name": "CreateWorksetByName",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Data.List": {
+        "Key": "Data.List",
+        "Value": "Caribou.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Package Name - Golden Eagle\r\n#Author - Prem Talreja\r\n#Contact - goldeneagle.bim@gmail.com\r\n\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nclr.AddReference('RevitAPI')\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\nWorksetNames = [IN[0]]\r\nWorksetList = []\r\n\t\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\nif isinstance(IN[0], list):\r\n\tfor workset in IN[0]:\r\n\t\tWorkset = Workset.Create(doc, workset)\r\n\t\tWorksetList.append(workset)\r\nelse:\r\n\tWorksetList.append(IN[0])\t\t\r\n\r\n\t\r\nTransactionManager.Instance.TransactionTaskDone()\r\nOUT = WorksetList",
+      "VariableInputPorts": true,
+      "Id": "c2e642778cc448e5ab93108d5f8b5c05",
+      "Inputs": [
+        {
+          "Id": "6666ce3069e7451bbce931d6ac58fd8e",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a8d553d7517d436eb6af706d5c4adc53",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Workset",
+      "Id": "360308f2c54a439288b9338406bc5888",
+      "Inputs": [
+        {
+          "Id": "1dbca5def0a34060b82587a53010d560",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "name",
+        "TypeName": "string",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "b4df77bb2dc54fd79543bfea1fcb1959",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f07c6571e7f8409b95a587fee537f13d",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a8d553d7517d436eb6af706d5c4adc53",
+      "End": "1dbca5def0a34060b82587a53010d560",
+      "Id": "bba8c49030be49efbef26ffbf78c59f0"
+    },
+    {
+      "Start": "f07c6571e7f8409b95a587fee537f13d",
+      "End": "6666ce3069e7451bbce931d6ac58fd8e",
+      "Id": "39b9c65c8d164847862836c1347dc622"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "c2e642778cc448e5ab93108d5f8b5c05",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 286.075756844493,
+        "Y": 19.0297287072587
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "360308f2c54a439288b9338406bc5888",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 475.044064087911,
+        "Y": 33.52080641181611
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "b4df77bb2dc54fd79543bfea1fcb1959",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 76.771128953067716,
+        "Y": 13.630147029110788
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "5a8855eb8e214237959824b4f0cfe939",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - Workset By Name",
+        "Nodes": [],
+        "Left": 298.90808243723757,
+        "Top": -65.0728848761483,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 94.278730857957385,
+    "Y": 195.89715089549071,
+    "Zoom": 1.2935248332151414
+  }
+}

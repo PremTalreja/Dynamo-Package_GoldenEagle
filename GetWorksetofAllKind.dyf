@@ -1,0 +1,144 @@
+{
+  "Uuid": "430707b8-1d29-4f7c-b029-c62488cf712f",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.Workset",
+  "Description": "Get All Kind of workset from revit",
+  "Name": "GetWorksetofAllKind",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Workset": {
+        "Key": "archilab.Revit.Elements.Workset",
+        "Value": "archilab.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Package Name - Golden Eagle\r\n#Author - Prem Talreja\r\n#Contact - goldeneagle.bim@gmail.com\r\n\r\n\r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nimport Autodesk\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\ncollector = FilteredWorksetCollector(doc)\r\nworksetnames = []\r\nfor wset in collector:\r\n\tworksetnames.append(wset.Name)\r\nOUT = collector, worksetnames",
+      "VariableInputPorts": true,
+      "Id": "ce51017507944f3eaa4142cd8d160ca9",
+      "Inputs": [
+        {
+          "Id": "8c61c311616040c99b63a5c93206e78a",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0b477e1661524cc88136fe1152ee3ffd",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Workset",
+      "Id": "89dae4e17f9643f391a5125aaf0677d7",
+      "Inputs": [
+        {
+          "Id": "1ec2ecf31e8b4010b3557570fb3e7f24",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0b477e1661524cc88136fe1152ee3ffd",
+      "End": "1ec2ecf31e8b4010b3557570fb3e7f24",
+      "Id": "22639feb95b048c89ab0b7328ac111f5"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "ce51017507944f3eaa4142cd8d160ca9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 250.0,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "89dae4e17f9643f391a5125aaf0677d7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 449.80000000000007,
+        "Y": 0.0
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "4e7c61b570934de2af7f382f793bbd32",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - Get Workset of all kind",
+        "Nodes": [],
+        "Left": 244.98747445289035,
+        "Top": -135.4233822679391,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -70.338646274999974,
+    "Y": 327.6321188,
+    "Zoom": 1.545620359375
+  }
+}

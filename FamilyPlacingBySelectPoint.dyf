@@ -1,0 +1,271 @@
+{
+  "Uuid": "a4dc83d7-1b5a-4272-b5c5-32b653a89953",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.SCANToBIM",
+  "Description": "Place family by selecting points from scan file",
+  "Name": "FamilyPlacingBySelectPoint",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyInstance.ByPoint@Revit.Elements.FamilyType,Autodesk.DesignScript.Geometry.Point",
+      "Id": "a03bde53889a416ca2a518c98f309ab5",
+      "Inputs": [
+        {
+          "Id": "59fc26303181444486d0d1f5a304c852",
+          "Name": "familyType",
+          "Description": "Family Type. Also called Family Symbol.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fd7395c874d84a4d9ef2f9b1ffa43e3d",
+          "Name": "point",
+          "Description": "Point in meters.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "de8704593a4242ceaa3dc4908632d966",
+          "Name": "FamilyInstance",
+          "Description": "FamilyInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space\n\nFamilyInstance.ByPoint (familyType: FamilyType, point: Point): FamilyInstance"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "bb6eee16-28a3-48ac-9273-e5a74a073dce",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "bdd874c6a85b4d4b924cc176879c4926",
+      "Inputs": [
+        {
+          "Id": "55b1e8c9088c46b39b40db12064136ce",
+          "Name": "Refresh",
+          "Description": "bool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b812e307a1a147488a8cc391d72d732e",
+          "Name": "Point",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "(Sastrugi_Pointcloud_Geometry) This node allows the selection of a single point from a Pointcloud Instance."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "FamilyInstance",
+      "Id": "739c2df43adf4a4eb047dfcc424a98e6",
+      "Inputs": [
+        {
+          "Id": "a4575c936e0d490d9ed534a7a978ad43",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "SelectPoints",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "true",
+        "Description": ""
+      },
+      "Id": "5c8b636db8fc4ed99ac8fd817407b6f3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cbb7b8708a434144bcbf57da84b06306",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "FamilyTypes",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "5f508a836e7c419797d60fb8b5743d82",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "595641ce1a434dd09f6108e5c4f9c785",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "de8704593a4242ceaa3dc4908632d966",
+      "End": "a4575c936e0d490d9ed534a7a978ad43",
+      "Id": "9d7a8a7ee9d84feb8d3678f466080c4a"
+    },
+    {
+      "Start": "b812e307a1a147488a8cc391d72d732e",
+      "End": "fd7395c874d84a4d9ef2f9b1ffa43e3d",
+      "Id": "261f58a4a76649918ee9b171a85e845b"
+    },
+    {
+      "Start": "cbb7b8708a434144bcbf57da84b06306",
+      "End": "55b1e8c9088c46b39b40db12064136ce",
+      "Id": "bd3d258adb3b4103a885b6fe8954e9fd"
+    },
+    {
+      "Start": "595641ce1a434dd09f6108e5c4f9c785",
+      "End": "59fc26303181444486d0d1f5a304c852",
+      "Id": "11652386ee9141f29f14ec18d3026e06"
+    }
+  ],
+  "Dependencies": [
+    "bb6eee16-28a3-48ac-9273-e5a74a073dce"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "ghfjehueiv",
+      "Version": "1.1.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "bdd874c6a85b4d4b924cc176879c4926"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -134.64617917361542,
+      "EyeY": 151.45002743808337,
+      "EyeZ": 618.623199339141,
+      "LookX": 129.64617917361542,
+      "LookY": -140.45002743808337,
+      "LookZ": -626.623199339141,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "FamilyInstance.ByPoint",
+        "Id": "a03bde53889a416ca2a518c98f309ab5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1011.2416227134912,
+        "Y": 141.79309678827406
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "❄_Pointcloud Select Point",
+        "Id": "bdd874c6a85b4d4b924cc176879c4926",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 694.80430145269088,
+        "Y": 151.68723720085256
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "739c2df43adf4a4eb047dfcc424a98e6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1360.6416227134912,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "5c8b636db8fc4ed99ac8fd817407b6f3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 360.31517325248279,
+        "Y": 161.15062217048302
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "5f508a836e7c419797d60fb8b5743d82",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 770.01068249258151,
+        "Y": 260.71691394658762
+      }
+    ],
+    "Annotations": [],
+    "X": -73.533999999999992,
+    "Y": 118.7459999999999,
+    "Zoom": 0.8425
+  }
+}

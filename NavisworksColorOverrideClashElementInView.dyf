@@ -1,0 +1,571 @@
+{
+  "Uuid": "380c0c8a-0d19-4b8b-9580-3942ba9dbf2d",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.Navisworks",
+  "Description": "Change Color Of Clashed Elements In View,\r\n\r\nMake Sure Excel Exported from Navisworks is tick with ID ELEMENT Only.",
+  "Name": "NavisworksColorOverrideClashElementInView",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "String": {
+        "Key": "DSCore.String",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Select": {
+        "Key": "archilab.Revit.Selection.Select",
+        "Value": "archilab.dll"
+      },
+      "DSCore.Object": {
+        "Key": "DSCore.Object",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Dictionary": {
+        "Key": "DesignScript.Builtin.Dictionary",
+        "Value": "DesignScriptBuiltin.dll"
+      },
+      "Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.FromObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "b8a3e5e81914477f8b15add1332f9385",
+      "Inputs": [
+        {
+          "Id": "db7087e72c2d43f598da5e5af347ee84",
+          "Name": "obj",
+          "Description": "Object to be serialized",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "605234332da74eb9a85f6701a5196f2c",
+          "Name": "str",
+          "Description": "Result of math computation",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Convert an object to a string representation."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "43e373df-a769-4dec-a064-6523c7cb0cf8",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "0ee8b90840b943ae8943230dd16ebc75",
+      "Inputs": [
+        {
+          "Id": "30d18f4b6acb4bc2a63137f85b892535",
+          "Name": "filePath",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d9ea8e40f5a1458aac4cf88370656682",
+          "Name": "showExcel",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "228b2d4b9d304093b08ca5bb923d3f66",
+          "Name": "readAsStrings",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "715222f21d6c4c489af4020433195471",
+          "Name": "sheetName",
+          "Description": "string\nDefault value : \"Sheet1\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4e35b176dfa342b2908bc27c55b4d5bd",
+          "Name": "Outlist",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Data Import from excel without any null or empty data."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "ClashedElement",
+      "Id": "70c6521413c74f31a90888052adb1434",
+      "Inputs": [
+        {
+          "Id": "b21d9ef403964b5ea55dc8cb114c1b55",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "FilePath",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "63a06ddec84b45a0b85d799624d11978",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c51386d5ca35443ba3dd527903edf91d",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "sheetName",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": "\"Sheet1\"",
+        "Description": ""
+      },
+      "Id": "b5d3e4b39ad44afd9eabf4cbb65a6b9a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "87e9c4d8851547a5994c5c246403ed3f",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "color",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "30bd141239ee4d5b940db689d84d7b19",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4ff7d0a8a5494841aa99c9a86c683f68",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "str1 = String.Remove(t2, 0, 12);\nt3 = Select.ByElementId(str1);\nbool1 = DSCore.Object.IsNull(t3);\nt4 = DSCore.List.FilterByBoolMask(t3, bool1);\nt5 = Dictionary.ValueAtKey(t4, \"in\");\nt6 = Dictionary.ValueAtKey(t4, \"out\");\nelement1 = Elements.Element.OverrideColorInView(t6, t7);\n_element = element1;\nt1 = _element;",
+      "Id": "7360e08b75814977b27145b49d289954",
+      "Inputs": [
+        {
+          "Id": "832727a93ba24bf199ae228bf3aefff6",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7feabc84561c4bfea5ca9b8c81f7c16b",
+          "Name": "t7",
+          "Description": "t7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a961353edfe24c17a2d8294967aeafa7",
+          "Name": "",
+          "Description": "str1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0055953f53de482ca037afd94542aba3",
+          "Name": "",
+          "Description": "t3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8cad353b932e4c159db4a28c4e2f9979",
+          "Name": "",
+          "Description": "bool1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "47342f63fedc4bcaa7fb819c3066ad0a",
+          "Name": "",
+          "Description": "t4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "52ae7fd7f7a14026a8762e081c4e47e6",
+          "Name": "",
+          "Description": "t5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "72a3899bea1746caac187d9bc6d1eaa7",
+          "Name": "",
+          "Description": "t6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "768bc6a73c6a4535b20ad6effc0e4be6",
+          "Name": "",
+          "Description": "element1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b84135f687b426cac16e5f8450f4947",
+          "Name": "",
+          "Description": "_element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6beda4a4720e4c98a065d65ea262364f",
+          "Name": "",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "t1 = DSCore.List.Transpose(t2);\nbool1 = DSCore.Object.IsNull(t1);\nt3 = DSCore.List.FilterByBoolMask(t1, bool1);\nt4 = Dictionary.ValueAtKey(t3, \"in\");\nt5 = Dictionary.ValueAtKey(t3, \"out\");",
+      "Id": "664f539fe98d44948bb0ee54e8d95fb1",
+      "Inputs": [
+        {
+          "Id": "f675c3a5f21746279d9e424d66d49349",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "59ea36a7218e4de8b6cf0c12e5365ca7",
+          "Name": "",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c90cc6b1ae6c41b284adee407d4895e7",
+          "Name": "",
+          "Description": "bool1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "067e018886184b6fba0527cfb76d04b0",
+          "Name": "",
+          "Description": "t3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ec08726b189f428388a375f3334d95c7",
+          "Name": "",
+          "Description": "t4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "af0943799443440181888837fa34653e",
+          "Name": "",
+          "Description": "t5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "605234332da74eb9a85f6701a5196f2c",
+      "End": "832727a93ba24bf199ae228bf3aefff6",
+      "Id": "97364514eff94334b4e876cbc170db80"
+    },
+    {
+      "Start": "4e35b176dfa342b2908bc27c55b4d5bd",
+      "End": "f675c3a5f21746279d9e424d66d49349",
+      "Id": "57717c01e9574c818c665383362ac120"
+    },
+    {
+      "Start": "c51386d5ca35443ba3dd527903edf91d",
+      "End": "30d18f4b6acb4bc2a63137f85b892535",
+      "Id": "9a813629d7ae491796196b75ef8d36a9"
+    },
+    {
+      "Start": "87e9c4d8851547a5994c5c246403ed3f",
+      "End": "715222f21d6c4c489af4020433195471",
+      "Id": "91d85330f66245ab923f53c937041301"
+    },
+    {
+      "Start": "4ff7d0a8a5494841aa99c9a86c683f68",
+      "End": "7feabc84561c4bfea5ca9b8c81f7c16b",
+      "Id": "6a5e14ff4fe7403f811892bc02bb0983"
+    },
+    {
+      "Start": "6beda4a4720e4c98a065d65ea262364f",
+      "End": "b21d9ef403964b5ea55dc8cb114c1b55",
+      "Id": "e76c23ac8e8a4b679153effdf31d1aab"
+    },
+    {
+      "Start": "af0943799443440181888837fa34653e",
+      "End": "db7087e72c2d43f598da5e5af347ee84",
+      "Id": "82b05f2469884f35b49d3483605bb055"
+    }
+  ],
+  "Dependencies": [
+    "43e373df-a769-4dec-a064-6523c7cb0cf8"
+  ],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "String from Object",
+        "Id": "b8a3e5e81914477f8b15add1332f9385",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2571.82909470282,
+        "Y": 320.49991582179427
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ImportFromExcel",
+        "Id": "0ee8b90840b943ae8943230dd16ebc75",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1338.1482085703676,
+        "Y": 249.81964465988821
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "70c6521413c74f31a90888052adb1434",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 4278.6484206275836,
+        "Y": 519.07131677509847
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "63a06ddec84b45a0b85d799624d11978",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1082.6356052309059,
+        "Y": 223.20838200501962
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "b5d3e4b39ad44afd9eabf4cbb65a6b9a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1000.9933525966501,
+        "Y": 338.72348413646671
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "30bd141239ee4d5b940db689d84d7b19",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2469.1356478111888,
+        "Y": 639.93862487751028
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "7360e08b75814977b27145b49d289954",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2888.3953102762616,
+        "Y": 617.31614693252186
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "664f539fe98d44948bb0ee54e8d95fb1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2014.5641014604196,
+        "Y": 316.68118608864467
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "e2e95fe1fd374609b69696bd6af27f42",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - Clash Color Override from Navisworks Report",
+        "Nodes": [],
+        "Left": 1858.4515290605884,
+        "Top": 91.777245696112232,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -621.46580118340637,
+    "Y": 127.67532325943802,
+    "Zoom": 0.49037965435992736
+  }
+}

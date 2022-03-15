@@ -1,0 +1,345 @@
+{
+  "Uuid": "de363385-3c1c-4623-b514-c19d81e40e35",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.COBie",
+  "Description": "COBie.CreatedOn data fill live date and time on parameter",
+  "Name": "COBieCreatedOn",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Element",
+      "Id": "2223862f0e2e4a9da0f574b281459086",
+      "Inputs": [
+        {
+          "Id": "a4af7b6a18ae4cd1abd52947f25dbbe5",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "Elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "302a3dae23d64671bf5b83bedcc9f68d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "255a8ba56c2046d6831329de7d83c943",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.FromObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "471388310b95415fa920cecaee9c0103",
+      "Inputs": [
+        {
+          "Id": "d296ca8bfdee403a8ab330099502b416",
+          "Name": "obj",
+          "Description": "Object to be serialized",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5be84ca27baf43afafbf78815f883087",
+          "Name": "str",
+          "Description": "Result of math computation",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Convert an object to a string representation."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import sys\r\n\r\nsys.path.append(r\"C:\\Program Files (x86)\\IronPython 2.7\\Lib\")\r\n\r\nfrom datetime import datetime\r\n\r\nnow = datetime.now()\r\n\r\nstr_format = IN[0]\r\n\r\nOUT = now.strftime(str_format)",
+      "VariableInputPorts": true,
+      "Id": "b82e4f8b6f074b199a434373668e9547",
+      "Inputs": [
+        {
+          "Id": "f300f70faa554237be8b7c6957c25fe6",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "75664a977adf41e6bfc7acece5df1d8b",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "str2 = \"COBie.CreatedOn\";\nstr1 = \"%d-%m-%y\";",
+      "Id": "cd45caada4bc46a7866846e6bc661b83",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e33f9b79bb874011a4b17aab36ee163c",
+          "Name": "",
+          "Description": "str2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "01c896467e1b42bdb6d0ddfa63058d6e",
+          "Name": "",
+          "Description": "str1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "element1 = Elements.Element.SetParameterByName(t1, str1, t2);",
+      "Id": "83ad41f2934d4418b11d9d1819b99333",
+      "Inputs": [
+        {
+          "Id": "84dd417b54204445841775a30cc8cbbe",
+          "Name": "t1",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fa6895511289420aadcc6e6c4436a2c6",
+          "Name": "str1",
+          "Description": "str1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "114c4dafa35c440496f3d1a277a831a9",
+          "Name": "t2",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c999597651a14f9dad16ed96ae10b888",
+          "Name": "",
+          "Description": "element1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "255a8ba56c2046d6831329de7d83c943",
+      "End": "84dd417b54204445841775a30cc8cbbe",
+      "Id": "6cdadc4bc205494ea4e5cbd9c22a14ae"
+    },
+    {
+      "Start": "5be84ca27baf43afafbf78815f883087",
+      "End": "114c4dafa35c440496f3d1a277a831a9",
+      "Id": "03ddbdba057941429db339600d490acc"
+    },
+    {
+      "Start": "75664a977adf41e6bfc7acece5df1d8b",
+      "End": "d296ca8bfdee403a8ab330099502b416",
+      "Id": "8fffefc9447040f8bd7f19117eeedff0"
+    },
+    {
+      "Start": "e33f9b79bb874011a4b17aab36ee163c",
+      "End": "fa6895511289420aadcc6e6c4436a2c6",
+      "Id": "563ca5d058a7460aa31de0146d221f9d"
+    },
+    {
+      "Start": "01c896467e1b42bdb6d0ddfa63058d6e",
+      "End": "f300f70faa554237be8b7c6957c25fe6",
+      "Id": "3611c5c8acf74f7db50c28db1943b748"
+    },
+    {
+      "Start": "c999597651a14f9dad16ed96ae10b888",
+      "End": "a4af7b6a18ae4cd1abd52947f25dbbe5",
+      "Id": "5052898680574d5cbd62bb7f76f6f28e"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "2223862f0e2e4a9da0f574b281459086",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1231.5388271479198,
+        "Y": 7.1574909901657406
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "302a3dae23d64671bf5b83bedcc9f68d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 133.22892569176713,
+        "Y": -135.44738287215534
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String from Object",
+        "Id": "471388310b95415fa920cecaee9c0103",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 532.905300112719,
+        "Y": 149.28539075263254
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "b82e4f8b6f074b199a434373668e9547",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 318.55049750091172,
+        "Y": 145.19145383342385
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "cd45caada4bc46a7866846e6bc661b83",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 248.83996992361151,
+        "Y": 14.959758243139234
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "83ad41f2934d4418b11d9d1819b99333",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 579.96671457079083,
+        "Y": -10.736236485248639
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "3c3b75be20104427abe9f81a5b29cbb1",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - COBie.CreatedOn",
+        "Nodes": [],
+        "Left": 559.325705118691,
+        "Top": -158.65297668700751,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -36.839597858759419,
+    "Y": 299.15402391037327,
+    "Zoom": 0.89416808331207664
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "Uuid": "85aca52d-f200-49ed-a0e3-f24fb0d33c74",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.About",
+  "Description": "It opens my github repositories.",
+  "Name": "GitHub",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Package Name - Golden Eagle\r\n#Author - Prem Talreja\r\n#Contact - goldeneagle.bim@gmail.com\r\n\r\nimport os\r\n\r\nif IN[0]:\r\n\tos.system(\"start \\\"\\\" https://github.com/PremTalreja/\")\r\n\tOUT = \"Welcome\"\r\nelse:\r\n\tOUT = \"Set True on Boolean\"",
+      "VariableInputPorts": true,
+      "Id": "f56539ffc0bb4d6c935ee0c8a1e02944",
+      "Inputs": [
+        {
+          "Id": "9b0906e0971b40c0872a7b74c66d3051",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "27e293f2b95a4c30a613984680e1f0e5",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "runMe",
+        "TypeName": "bool",
+        "TypeRank": 0,
+        "DefaultValue": "false",
+        "Description": ""
+      },
+      "Id": "164e210eea0e433f93cf7c0cf93ea602",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "65893f7e267f42b1b0c5e404f634590a",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "OUT",
+      "Id": "0c8a5e5f3f7f45639106d2282f75886f",
+      "Inputs": [
+        {
+          "Id": "a1efb213588542c2bd61f914364f10c3",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "27e293f2b95a4c30a613984680e1f0e5",
+      "End": "a1efb213588542c2bd61f914364f10c3",
+      "Id": "0fe6b1d1c56d47ed910a048cbd3a3dd9"
+    },
+    {
+      "Start": "65893f7e267f42b1b0c5e404f634590a",
+      "End": "9b0906e0971b40c0872a7b74c66d3051",
+      "Id": "fdd8ab6b23b04a1fbf03f616ed581a32"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "f56539ffc0bb4d6c935ee0c8a1e02944",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 254.1846280304693,
+        "Y": 9.5648640696441589
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "164e210eea0e433f93cf7c0cf93ea602",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 21.520944156699386,
+        "Y": 12.553884091407951
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "0c8a5e5f3f7f45639106d2282f75886f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 449.80000000000007,
+        "Y": 0.0
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "a046524e27924ee5b2333bdbbe45a94d",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - My Github Repositories ",
+        "Nodes": [],
+        "Left": 182.20301797615321,
+        "Top": -105.23538252450768,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 134.858665,
+    "Y": 180.717715,
+    "Zoom": 1.33823125
+  }
+}

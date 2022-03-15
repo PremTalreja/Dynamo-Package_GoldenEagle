@@ -1,0 +1,297 @@
+{
+  "Uuid": "a5a972fe-72d1-4056-a5a3-20b66c9b5a64",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.Parameter",
+  "Description": "Set All your slope values to comments parameter",
+  "Name": "PipeSlopeValuetoCommentParameter",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "08315fb1-a4a6-49e3-9761-00778ee38052",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "945aba15c06f4a02a41c8372ead8e39c",
+      "Inputs": [
+        {
+          "Id": "4a25d7d46ebc4f1d977d7ce3f8e0b447",
+          "Name": "Elements",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dabbf7dffe2143b491f6e580c1fac644",
+          "Name": "GetparameterName",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7035cd5207354e98bfa9599c4307fe85",
+          "Name": "SetparameterName",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "07b3ebf2e3a7467fab0fcd976bc40ecd",
+          "Name": "Element",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Parameter Value From Element and Set it on other Parameter."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "80031340670847d6b1121625502d5f28",
+      "Inputs": [
+        {
+          "Id": "d345087849cc4007bbda2ffb3acff640",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "900fd67adb8946c8843f2431f4ad5331",
+          "Name": "Elements",
+          "Description": "An element type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 353,
+      "SelectedString": "OST_PipeCurves",
+      "NodeType": "ExtensionNode",
+      "Id": "3d18e9cc131349a992926a4d6ae2b51e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "29e63b0f10664971ac2c35c4d5c50dac",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Element",
+      "Id": "e1af8c772f424304a3f6210294127b45",
+      "Inputs": [
+        {
+          "Id": "54cc3eaf92c546c48b4c0a23c2c69fda",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "str1 = \"Slope\";\nstr2 = \"Comments\";",
+      "Id": "4d539eb250c2445e9553cf40233e4a11",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "43f38c13bbc8472cb07eef72a30942dc",
+          "Name": "",
+          "Description": "str1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0d008f3479d94b9487d79ea54be1764a",
+          "Name": "",
+          "Description": "str2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "07b3ebf2e3a7467fab0fcd976bc40ecd",
+      "End": "54cc3eaf92c546c48b4c0a23c2c69fda",
+      "Id": "8a08d28274364ababcfbce702e094527"
+    },
+    {
+      "Start": "900fd67adb8946c8843f2431f4ad5331",
+      "End": "4a25d7d46ebc4f1d977d7ce3f8e0b447",
+      "Id": "ec361010f1814b858d4f22e256136018"
+    },
+    {
+      "Start": "29e63b0f10664971ac2c35c4d5c50dac",
+      "End": "d345087849cc4007bbda2ffb3acff640",
+      "Id": "570c64f11fcc4c58bf8562bad36c7925"
+    },
+    {
+      "Start": "43f38c13bbc8472cb07eef72a30942dc",
+      "End": "dabbf7dffe2143b491f6e580c1fac644",
+      "Id": "ee4bf115e19e40c2b488d11af11c2af2"
+    },
+    {
+      "Start": "0d008f3479d94b9487d79ea54be1764a",
+      "End": "7035cd5207354e98bfa9599c4307fe85",
+      "Id": "76d3ed6074ea48118072a507d6ec9796"
+    }
+  ],
+  "Dependencies": [
+    "08315fb1-a4a6-49e3-9761-00778ee38052"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "SaveandDetached",
+      "Version": "0.0.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "945aba15c06f4a02a41c8372ead8e39c"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "GetandSetParameterValueByName",
+        "Id": "945aba15c06f4a02a41c8372ead8e39c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 772.0,
+        "Y": 187.19999999999987
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Category",
+        "Id": "80031340670847d6b1121625502d5f28",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 508.0,
+        "Y": 39.1999999999999
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Categories",
+        "Id": "3d18e9cc131349a992926a4d6ae2b51e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 250.0,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "e1af8c772f424304a3f6210294127b45",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1137.4,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "4d539eb250c2445e9553cf40233e4a11",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 486.1,
+        "Y": 244.49999999999989
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "1d4dd1ab3a9e41f799c39412b53fe85b",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - Pipe Slope Parameter to Comment Parameter",
+        "Nodes": [],
+        "Left": 751.779595294616,
+        "Top": 38.269248215183666,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 80.954634999999939,
+    "Y": 173.88496000000006,
+    "Zoom": 0.70823125000000009
+  }
+}

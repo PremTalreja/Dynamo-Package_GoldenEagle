@@ -1,0 +1,224 @@
+{
+  "Uuid": "57b36d09-871a-480e-9e0e-bc3a72351824",
+  "IsCustomNode": true,
+  "Category": "GoldenEagle.COBie",
+  "Description": "Fill up COBie.Component.Description by this code, Make sure COBie.Component.Name filled.",
+  "Name": "COBieComponentDescription",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      },
+      "Revit.Elements.Element": {
+        "Key": "Revit.Elements.Element",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Element",
+      "Id": "690d13b7351a46598b8a4f4f5dbef7e0",
+      "Inputs": [
+        {
+          "Id": "903a27662d9f4346847692629a37cf9f",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "Elements",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "c476b8028d6a43e484f51949c0ae5e10",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d14444415dda4cfa97ff177da5722a50",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "category1 = Elements.Element.GetCategory(t1);\nt2 = category1 + \"-\";\nt3 = Elements.Element.GetParameterValueByName(t1, \"COBie.Component.Name\");\nt4 = t2 + t3;\nelement1 = Elements.Element.SetParameterByName(t1, \"COBie.Component.Description\", t4);",
+      "Id": "988a29824ab543cfa49b695ec14e9320",
+      "Inputs": [
+        {
+          "Id": "1333ce24c6ee44f08bddd897681f52d7",
+          "Name": "t1",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "76f0d52e28534da49f349218f9d0f6f6",
+          "Name": "",
+          "Description": "category1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3f82efb7a54e41aea5ac97a11bc9e239",
+          "Name": "",
+          "Description": "t2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "425d8589e648453aa94b6a26f70cd8d1",
+          "Name": "",
+          "Description": "t3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d4481304e1c14f8694bd2e185294c420",
+          "Name": "",
+          "Description": "t4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c191bd7b621b40b2b4c1a4f8ee283df2",
+          "Name": "",
+          "Description": "element1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "d14444415dda4cfa97ff177da5722a50",
+      "End": "1333ce24c6ee44f08bddd897681f52d7",
+      "Id": "b00a3ff69209407381e16008195bc010"
+    },
+    {
+      "Start": "c191bd7b621b40b2b4c1a4f8ee283df2",
+      "End": "903a27662d9f4346847692629a37cf9f",
+      "Id": "39a19085190442539424e2ede95ecbba"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "690d13b7351a46598b8a4f4f5dbef7e0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1626.0963348273258,
+        "Y": 68.335155498248582
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "c476b8028d6a43e484f51949c0ae5e10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 541.0068526751603,
+        "Y": 63.046881392554269
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "988a29824ab543cfa49b695ec14e9320",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 783.364220617988,
+        "Y": 33.309805912734873
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "2890bcd1b3484d3495b534eda1f23e83",
+        "Title": "Package Name - Golden Eagle\r\nAuthor - Prem Talreja\r\nContact - goldeneagle.bim@gmail.com\r\nNode Name - COBieCompoenentDescription",
+        "Nodes": [],
+        "Left": 796.65456489168855,
+        "Top": -106.993566806203,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -353.74750654374839,
+    "Y": 232.61301820816951,
+    "Zoom": 0.86797750764901571
+  }
+}
